@@ -1,0 +1,1 @@
+pg_dump -f dml.sql -F p -C -s -E UTF-8 -n public -h localhost -p 5432 -U dmp

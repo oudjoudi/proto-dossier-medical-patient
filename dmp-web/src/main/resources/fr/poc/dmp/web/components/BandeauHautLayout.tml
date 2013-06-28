@@ -1,0 +1,31 @@
+<html t:type="layout" title="Accueil"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">	
+
+	<div class="navbar">
+	    <div class="navbar-inner">
+		    <ul class="nav">
+		    	<li>
+			    	<t:pagelink page="home">
+			    		<i class="icon-home"/> Accueil
+			    	</t:pagelink>
+			    </li>
+			    <li class="${consultClass}">
+			    	<t:pagelink page="dossier/RechercherDossier">
+			    		<i class="icon-folder-open"/> Consulter un dossier
+			    	</t:pagelink>
+			    </li>
+			    <li class="${creationClass}">
+			    	<t:pagelink page="dossier/CreerDossier">
+			    		<i class="icon-plus-sign"/> Créer un dossier
+			    	</t:pagelink>
+			    </li>
+		    </ul>
+	    </div>
+    </div>
+	
+	<div>    
+		<t:body/>
+	</div>
+</html>

@@ -1,0 +1,69 @@
+.sidebar-nav {
+    padding: 9px 0;
+}
+	
+#sidebar .exanpe-vmenu {
+    border: 0 none;
+}
+#sidebar .exanpe-vmenu .vmenu-content {
+    border: 0 none;
+}
+#sidebar .exanpe-vmenu ul li .vmenu-title {
+    background: none repeat scroll 0 0 transparent;
+}
+#sidebar .exanpe-vmenu ul li .vmenu-title a {
+    color: #00AAFF;
+    font-weight: normal;
+}
+#sidebar .exanpe-vmenu ul li .vmenu-title .exanpe-vmenu-selected {
+    background-color: #00AAFF;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin-left: -25px;
+    margin-right: -15px;
+    padding-left: 25px;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {
+    background-color: #CCEEFF;
+}
+
+.nav-pills > li > a {
+    border: 1px solid #DDDDDD;
+}
+
+.displayData hr{
+	margin-top:0px;
+	margin-bottom:	5px;
+}
+
+.well{
+	background-color : #EFF6FA;	
+}
+
+.row-fluid [class*="span"] {
+	min-height: 0px;	
+}
+
+legend{
+	color:white;
+	background-color : #B0C8E7;
+	font-size: 18px;
+    line-height: 30px;
+    border: 1px solid white;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.125) inset;
+}
+
+.well-fieldset{
+	padding:5px;	
+}
+
+.well-fieldset {
+	
+}
+
+.t-data-grid .btn{
+	line-height:14px;
+}

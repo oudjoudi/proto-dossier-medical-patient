@@ -1,0 +1,23 @@
+<html t:type="layout" title="Accueil"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+    
+	<div class="well">
+
+		<div class="row-fluid">
+			<t:pagelink page="dossier/RechercherDossier"
+				class="btn span6" style="height:300px; line-height:300px">
+    			<h1>Consulter un dossier</h1>
+    			<img src="layout/img/folder_search.png"/>
+			</t:pagelink>
+    		<t:pagelink page="dossier/CreerDossier"
+    			class="btn span6" style="height:300px; line-height:300px">
+    			<h1>Créer un dossier</h1>
+    			<img src="layout/img/folder_add.png"/>
+			</t:pagelink>
+	    </div>
+
+	</div>
+	
+	
+</html>

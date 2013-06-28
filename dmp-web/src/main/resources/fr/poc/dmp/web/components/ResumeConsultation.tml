@@ -1,0 +1,43 @@
+<t:container 
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" 
+	xmlns:p="tapestry:parameter">
+
+	<div class="row-fuild">
+	
+		<div class="span3">
+			<t:displayvalue label="Date" last="true">
+				 ${dateToString}
+			</t:displayvalue>
+		</div>
+		<div class="span3">
+			<t:displayvalue label="Médecin" last="true">
+				 ${consultation.nomMedecin} ${consultation.prenomMedecin}
+			</t:displayvalue>
+		</div>
+		<div class="span3">
+			<t:displayvalue label="Service" last="true">
+				 ${consultation.serviceConsultation.libelle}
+			</t:displayvalue>
+		</div>
+		<div class="span3">
+			<t:displayvalue label="Décisions" last="true">
+				 ${consultation.decisions?.libelle}
+			</t:displayvalue>
+		</div>
+		
+	</div>
+	<div style="padding-left:50px">
+		<t:displayvalue label="Données significatives">
+			${consultation.donneesSignificatives}
+		</t:displayvalue>
+		<t:displayvalue label="Biographie">
+			${consultation.commentaires}
+		</t:displayvalue>
+		<t:displayvalue label="Conclusions">
+			${consultation.conclusions}
+		</t:displayvalue>
+		<t:displayvalue label="Commentaires">
+			${consultation.commentaires}
+		</t:displayvalue>
+	</div>
+</t:container>

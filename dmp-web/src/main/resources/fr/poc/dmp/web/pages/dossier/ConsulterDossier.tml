@@ -1,0 +1,123 @@
+<html t:type="consultationlayout"
+	  t:dossier="dossier"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   	<t:encart t:title="Antécédents">
+   		???	
+   	</t:encart>
+   	
+   	<t:encart t:title="Hospitalisations en cours">
+   		<t:if test="hospitalisationEnCours">
+    		 <div class="span6">
+    		 	<t:displayvalue label="Diagnostic principal">
+					${hospitalisationEnCours.diagnosticPrincipal}
+				</t:displayvalue>
+    		 </div>
+    		 <div class="span5">
+    		 	<t:displayvalue label="Diagnostic associé">
+					${hospitalisationEnCours.diagnosticAssocie}
+				</t:displayvalue>
+    		 </div>
+   		 <p:else>
+   		 	Aucune hospitalisation en cours
+   		 </p:else>
+   		 </t:if>
+   	</t:encart>
+   	
+   	<t:encart t:title="Historique des hospitalisations">
+   		<t:if test="dossier.hospitalisations">
+    		
+    		<t:grid t:id="gridHospitalisations" t:source="dossier.hospitalisations" t:row="loopHospitalisation"
+    			add="detail,motifSortie"
+    			include="dateEntree,diagnosticPrincipal,dateSortie"
+    			reorder="dateEntree,diagnosticPrincipal,dateSortie,motifSortie,detail"
+    			t:mixins="DisableSortMixin"
+    			style="width:100%">
+    			<p:dateEntreeHeader>
+    				Date d'entrée
+    			</p:dateEntreeHeader>
+    			<p:dateSortieHeader>
+    				Date de sortie
+    			</p:dateSortieHeader>
+    			<p:motifSortieHeader>
+    				Motif de sortie
+    			</p:motifSortieHeader>
+    			
+    			<p:dateEntreeCell>
+    				<t:formatDate date="loopHospitalisation.dateEntree"/>
+    			</p:dateEntreeCell>
+    			<p:motifSortieCell>
+    				${loopHospitalisation.motifSortie?.libelle}
+    			</p:motifSortieCell>
+    			<p:dateSortieCell>
+    				<t:formatDate date="loopHospitalisation.dateSortie"/>
+    			</p:dateSortieCell>		
+    			<p:detailCell>
+    				<div style="text-align:center">
+	    				<t:pagelink t:page="dossier/hospitalisation/consulterHospitalisation" t:context="loopHospitalisation.id" class="btn btn-info">
+	    					<i class="icon-arrow-right icon-white"/> Voir le détail
+	    				</t:pagelink>
+	    			</div>
+    			</p:detailCell>    			
+    		</t:grid>
+    				    		
+   		 <p:else>
+   		 	Aucune hospitalisation
+   		 </p:else>
+   		 </t:if>
+   	</t:encart>
+   
+   	<t:encart t:title="Historique des consultations">
+   		<t:if test="dossier.consultations">
+    		
+    		<t:grid t:source="dossier.consultations" t:row="loopConsultation"
+    			include="dateConsultation"
+    			add="nomprenom,detail,serviceConsult,dec"
+    			reorder="dateConsultation,nomprenom,serviceConsult,dec,detail"
+    			style="width:100%">
+    			<p:dateConsultationHeader>
+    				Date
+    			</p:dateConsultationHeader>
+    			<p:nomprenomHeader>
+    				Médecin
+    			</p:nomprenomHeader>
+    			<p:serviceConsultHeader>
+    				Service
+    			</p:serviceConsultHeader>
+    			<p:decHeader>
+    				Décisions
+    			</p:decHeader>
+    			<p:detailHeader>
+    				Détail
+    			</p:detailHeader>
+    			
+    			<p:dateConsultationCell>
+    				<t:formatDate date="loopConsultation.dateConsultation"/>
+    			</p:dateConsultationCell>
+    			<p:nomprenomCell>
+    				${loopConsultation.nomMedecin} ${loopConsultation.prenomMedecin}
+    			</p:nomprenomCell>		
+    			<p:serviceConsultCell>
+    				${loopConsultation.serviceConsultation.libelle}
+    			</p:serviceConsultCell>	
+    			<p:decCell>
+    				${loopConsultation.decisions?.libelle}
+    			</p:decCell>	
+    			    	
+    			<p:detailCell>
+    				<div style="text-align:center">
+    					<t:pagelink t:page="dossier/consultation/consulterConsultation" t:context="loopConsultation.id" class="btn btn-info">
+	    					<i class="icon-file icon-white"></i> Voir le détail
+	    				</t:pagelink>
+    				</div>
+    			</p:detailCell>				
+    		</t:grid>
+    				    		
+   		 <p:else>
+   		 	Aucune consultation
+   		 </p:else>
+   		 </t:if>
+   	</t:encart>
+</html>

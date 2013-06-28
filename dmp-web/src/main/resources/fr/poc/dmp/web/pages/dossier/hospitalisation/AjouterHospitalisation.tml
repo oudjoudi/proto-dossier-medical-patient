@@ -1,0 +1,31 @@
+<html t:type="bandeauhautlayout"
+	  t:consult="true"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+	
+	<t:sousmenudossier dossier="dossier" ajouterhospitalisation="true"/>
+	
+	<div class="well">
+		<t:form t:id="form" class="form-horizontal">
+			<t:formError/>
+				
+			<t:formhospitalisation hospitalisation="hospitalisation"/>
+			
+			<div class="control-group">
+				<div class="controls">
+					<div class="row" style="margin-left: 0px">
+						<div class="span2" style="margin-left:0px">
+							<t:submit t:value="Valider" class="btn btn-info" t:event="valider"/>
+						</div>
+						<div class="span4">
+							<t:actionlink type="button" class="btn" t:id="annuler">Annuler</t:actionlink>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</t:form>
+	</div>
+
+</html>

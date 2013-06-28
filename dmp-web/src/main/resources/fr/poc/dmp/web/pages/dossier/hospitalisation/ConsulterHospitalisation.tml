@@ -1,0 +1,43 @@
+<html t:type="consultationlayout"
+	  t:dossier="hospitalisation.dossier"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+	<t:encart t:title="Hospitalisation ${hospitalisation.id} du ${dateToString}">
+		
+		<div class="row-fuild">
+			 <div class="span6">
+    		 	<t:displayvalue label="Diagnostic principal" last="true">
+					${hospitalisation.diagnosticPrincipal}
+				</t:displayvalue>
+    		 </div>
+    		 <div class="span6">
+    		 	<t:displayvalue label="Diagnostic associé" last="true">
+					${hospitalisation.diagnosticAssocie}
+				</t:displayvalue>
+    		 </div>
+		</div>
+		<br/><br/><br/><br/>
+		<div>
+			<div class="lead displayData">
+			Consultations
+			<hr/>
+			</div>
+			<t:if test="hospitalisation.consultations">
+				
+				<t:loop source="hospitalisation.consultations" value="loopConsultation">
+					
+					<t:resumeConsultation consultation="loopConsultation"/>
+					
+				</t:loop>
+				
+				<p:else>
+					Aucune consultation
+				</p:else>
+			</t:if>
+		</div>	
+		
+	</t:encart>
+
+</html>

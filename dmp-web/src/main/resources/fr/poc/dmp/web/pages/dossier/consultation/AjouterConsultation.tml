@@ -1,0 +1,102 @@
+<html t:type="bandeauhautlayout"
+	  t:consult="true"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+	
+	<t:sousmenudossier dossier="dossier" ajouterconsultation="true"/>
+	
+	<div class="well">
+		<t:form t:id="form" class="form-horizontal">
+			<t:formError/>
+		
+			<div class="row-fluid">
+			<div class="span6" style="border-right:1px solid #E5E5E5">
+				
+				<t:formconsultation t:consultation="consultation"/>
+				
+			</div>
+			<div class="span6">
+			
+				<t:if test="dossier.hospitalisations">
+    				
+    				<div class="control-group">
+						<label class="control-label" for="rattach">
+							Rattacher une hospitalisation
+						</label>
+						<div class="controls">
+							<label class="checkbox" for="rattach">
+								<t:checkbox t:id="rattach" t:value="rattach" onclick="Dmp.toggleElement('rattachBlock')"/>
+							</label>
+						</div>
+					</div>
+					<div id="rattachBlock" style="display:${rattachDisplay}">
+    				<t:radiogroup t:id="ratt" t:value="rattachId">
+		    		<t:grid t:id="gridHospitalisations" t:source="dossier.hospitalisations" t:row="loopHospitalisation"
+		    			add="rattach,detail,motifSortie"
+		    			include="dateEntree,diagnosticPrincipal,dateSortie"
+		    			reorder="rattach,dateEntree,diagnosticPrincipal,dateSortie,motifSortie,detail"
+		    			t:mixins="DisableSortMixin"
+		    			style="width:100%">
+		    			<p:rattachHeader>
+		    				Rattacher ?
+		    			</p:rattachHeader>
+		    			<p:dateEntreeHeader>
+		    				Date d'entrée
+		    			</p:dateEntreeHeader>
+		    			<p:dateSortieHeader>
+		    				Date de sortie
+		    			</p:dateSortieHeader>
+		    			<p:motifSortieHeader>
+		    				Motif de sortie
+		    			</p:motifSortieHeader>
+		    			
+		    			<p:rattachCell>
+		    				<t:radio t:value="loopHospitalisation.id"/>
+		    			</p:rattachCell>
+		    			<p:dateEntreeCell>
+		    				<t:formatDate date="loopHospitalisation.dateEntree"/>
+		    			</p:dateEntreeCell>
+		    			<p:motifSortieCell>
+		    				${loopHospitalisation.motifSortie?.libelle}
+		    			</p:motifSortieCell>
+		    			<p:dateSortieCell>
+		    				<t:formatDate date="loopHospitalisation.dateSortie"/>
+		    			</p:dateSortieCell>		
+		    			<p:detailCell>
+		    				<div style="text-align:center">
+			    				<t:pagelink t:page="dossier/hospitalisation/consulterHospitalisation" target="_blank" t:context="loopHospitalisation.id" class="btn btn-info">
+			    					<i class="icon-arrow-right icon-white"/> Voir le détail
+			    				</t:pagelink>
+			    			</div>
+		    			</p:detailCell>    			
+		    		</t:grid>
+		    		</t:radiogroup>
+		    		</div>	
+	   		 <p:else>
+	   		 	Aucune hospitalisation à rattacher
+	   		 </p:else>
+		   	</t:if>
+				
+				
+			</div>
+			
+			</div>
+		
+			<div class="control-group">
+				<div class="controls">
+					<div class="row" style="margin-left: 0px">
+						<div class="span2" style="margin-left:0px">
+							<t:submit t:value="Valider" class="btn btn-info" t:event="valider"/>
+						</div>
+						<div class="span4">
+							<t:actionlink type="button" class="btn" t:id="annuler">Annuler</t:actionlink>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</t:form>
+	</div>
+
+</html>

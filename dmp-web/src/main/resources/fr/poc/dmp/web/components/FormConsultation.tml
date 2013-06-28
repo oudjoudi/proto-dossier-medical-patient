@@ -1,0 +1,47 @@
+<t:container 
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" 
+	xmlns:p="tapestry:parameter">
+
+	<t:inputlabel forId="dateConsultation" label="Date de consultation" required="true">
+		<t:textfield t:id="dateConsultation" t:value="consultation.dateConsultation" class="textfielddate input-small"
+				data-date="${dateToString}" data-date-format="dd/mm/yyyy" data-date-weekstart="1" autocomplete="off"/>			
+	</t:inputlabel>
+	
+	<div>
+		<t:inputlabel forId="idMedecin" label="Indentifiant du médecin" required="true">
+			<t:textfield t:id="idMedecin" t:value="consultation.identifiantMedecin"/>
+		</t:inputlabel>
+		
+	</div>
+	<t:inputlabel forId="nom" label="Nom du médecin" required="true">
+		<t:textfield t:id="nom" t:value="consultation.nomMedecin"/>
+	</t:inputlabel>
+	<t:inputlabel forId="prenom" label="Prénom du médecin" required="true">
+		<t:textfield t:id="prenom" t:value="consultation.prenomMedecin"/>
+	</t:inputlabel>
+	
+	<t:inputlabel forId="service" label="Service" required="true">
+		<t:select model="servicesSelect" t:value="consultation.serviceConsultation"
+			blankLabel="Sélectionnez"/>
+	</t:inputlabel>
+	
+	<t:inputlabel forId="biographie" label="Biographie">
+		<t:textarea t:id="biographie" t:value="consultation.commentaires"/>
+	</t:inputlabel>
+	
+	<t:inputlabel forId="donneessignif" label="Données significatives">
+		<t:textarea t:id="donneessignif" t:value="consultation.donneesSignificatives"/>
+	</t:inputlabel>
+	
+	<t:inputlabel forId="decisions" label="Décisions">
+		<t:select t:id="decisions" model="decisionsSelect" t:value="consultation.decisions"
+			blankLabel="Sélectionnez" onchange="Dmp.toggleOnSelectChange(this, '', 'commentaires-block', 'commentaires')"/>
+	</t:inputlabel>
+	
+	<div id="commentaires-block" style="display:${displayCommentaires}">
+		<t:inputlabel forId="commentaires" label="Commentaires">
+			<t:textarea t:id="commentaires" t:value="consultation.commentaires"/>
+		</t:inputlabel>
+	</div>
+
+</t:container>

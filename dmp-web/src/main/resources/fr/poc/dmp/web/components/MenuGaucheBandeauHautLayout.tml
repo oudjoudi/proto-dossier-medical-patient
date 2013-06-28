@@ -1,0 +1,28 @@
+<html t:type="bandeauhautlayout" title="Accueil"
+	  t:consult="consult"
+	  t:creation="creation"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">	
+
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span3">
+				<div class="well sidebar-nav" id="sidebar">
+					<ul class="nav nav-list">
+						<li class="nav-header">Menu</li>		
+						<ex:verticalMenu t:id="verticalmenu" defaultActiveItem="dossier_medical_patient">
+							<ex:verticalMenuItem t:id="dossier_medical_patient" t:title="literal:Dossier médical patient"/>
+							<ex:verticalMenuItem t:id="administration" t:title="literal:Administration"/>
+						</ex:verticalMenu>					
+					</ul>
+
+				</div>
+			</div>
+
+			<div class="span9" style="position:relative">
+				<t:body/>
+			</div>
+		</div>
+	</div>
+</html>

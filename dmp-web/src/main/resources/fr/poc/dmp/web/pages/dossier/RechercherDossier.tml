@@ -1,0 +1,50 @@
+<html t:type="bandeauhautlayout"
+	  t:consult="true"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+	
+	<t:if test="notFound">
+		<div class="alert alert-block">
+	    	<button type="button" class="close" data-dismiss="alert">x</button>
+	    	<h4>Aucun résultat</h4>
+	    	<t:if test="byIdentifiant">
+	    		Identifiant de dossier DMP inconnu
+	    	<p:else>
+	    		Patient inconnu
+	    	</p:else>
+	    	</t:if>
+	    </div>
+	</t:if>
+	
+	<div class="well">
+		<t:form t:id="form" class="form-horizontal">
+			
+			<t:formError/>
+			
+			<t:inputlabel forId="identifiant" label="Identifiant du dossier">
+				<t:textfield t:id="identifiant" t:value="identifiant"/>
+			</t:inputlabel>
+			<t:inputlabel forId="nom" label="Nom">
+				<t:textfield t:id="nom" t:value="nom"/>
+			</t:inputlabel>
+			<t:inputlabel forId="dateNaissance" label="Date de naissance">
+					<t:textfield t:id="dateNaissance" t:value="dateNaissance" class="textfielddate input-small"
+						data-date="01/01/2012" data-date-format="dd/mm/yyyy" data-date-weekstart="1" size="8" autocomplete="off"/>			
+			</t:inputlabel>
+			<div class="control-group">
+				<div class="controls">
+					<div class="row" style="margin-left: 0px">
+						<div class="span2" style="margin-left:0px">
+							<t:submit t:value="Rechercher" class="btn btn-info" t:event="rechercher"/>
+						</div>
+						<div class="span4">
+							<input type="button" class="btn" value="    Annuler    "/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</t:form>
+	</div>
+
+</html>

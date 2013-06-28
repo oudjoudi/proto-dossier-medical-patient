@@ -1,0 +1,25 @@
+<html t:type="bandeauhautlayout"
+	  t:creation="true"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+      
+	<div class="well">
+	   	<div class="alert alert-success">
+		    <h4>Le dossier médical a correctement été créé :</h4>
+		</div>
+	    <t:displayvalue label="Nom">
+			${dossier.patient.nom }
+		</t:displayvalue>
+		<t:displayvalue label="Prénom">
+			${dossier.patient.prenom }
+		</t:displayvalue>
+		<t:displayvalue label="Date de naissance">
+			<t:output format="literal:dd/MM/yyyy" value="dossier.patient.dateNaissance"/>
+		</t:displayvalue>
+		<t:displayvalue label="Identifiant du dossier">
+			${dossier.identifiant }
+		</t:displayvalue>
+    </div>
+	
+</html>

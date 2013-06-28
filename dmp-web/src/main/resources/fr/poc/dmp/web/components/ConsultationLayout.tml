@@ -1,0 +1,72 @@
+<html t:type="bandeauhautlayout"
+	  t:consult="true"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+	<t:sousmenudossier dossier="dossier" consulterdossier="true"/>
+
+	<div class="row-fluid displayData">
+	    <div class="span3">
+	    
+	    	<t:encart t:title="Dossier ${dossier.identifiant}">
+	    		<t:displayvalue label="Nom">
+					${dossier.patient.nom}
+				</t:displayvalue>
+				<t:displayvalue label="Nom d'usage">
+					${dossier.patient.nomUsage}
+				</t:displayvalue>
+				<t:displayvalue label="Prénom">
+					${dossier.patient.prenom}
+				</t:displayvalue>
+				<t:displayvalue label="Date de naissance">
+					<t:formatDate date="dossier.patient.dateNaissance"/>
+				</t:displayvalue>
+				<t:displayvalue label="Sexe">
+					${dossier.patient.sexe.libelle}
+				</t:displayvalue>
+				<t:displayvalue label="Profession" last="true">
+					${dossier.patient.profession}
+				</t:displayvalue>
+	    	</t:encart>
+	    	
+	    	<t:encart t:title="Coordonnées">
+	    		<t:displayvalue label="Adresse">
+					${dossier.patient.adresse}
+				</t:displayvalue>
+				<t:displayvalue label="Téléphone">
+					${dossier.patient.telephoneFixe}
+				</t:displayvalue>
+				<t:displayvalue label="Mobile"  last="true">
+					${dossier.patient.telephoneMobile}
+				</t:displayvalue>
+	    	</t:encart>
+	    
+	    	<t:encart t:title="Couverture sociale">
+	    		<t:displayvalue label="Numéro de Sécurité Sociale">
+					${dossier.patient.numeroSS}
+				</t:displayvalue>
+				<t:displayvalue label="Tuteur, curateur, tiers">
+					${dossier.patient.nomTuteur}
+				</t:displayvalue>
+				<t:displayvalue label="Nom mutuelle">
+					${dossier.patient.nomMutuelle}
+				</t:displayvalue>
+				<t:displayvalue label="Numéro mutuelle">
+					${dossier.patient.numeroMutuelle}
+				</t:displayvalue>
+				<t:displayvalue label="ALD en cours" last="true">
+					<t:if test="dossier.patient.indicateurALD">
+						Oui
+						<p:else>
+							Non
+						</p:else>	
+					</t:if>
+				</t:displayvalue>
+	    	</t:encart>
+	    </div>
+	    <div class="span9">
+	    	<t:body/>
+	    </div>
+	</div>
+</html>

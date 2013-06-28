@@ -1,0 +1,13 @@
+<html t:type="consultationlayout"
+	  t:dossier="consultation.dossier"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+	<t:encart t:title="Consultation du ${consultation.dateConsultation}">
+		
+		<t:resumeconsultation t:consultation="consultation"/>
+		
+	</t:encart>
+
+</html>

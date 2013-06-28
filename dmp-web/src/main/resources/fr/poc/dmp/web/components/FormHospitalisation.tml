@@ -1,0 +1,33 @@
+<t:container 
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" 
+	xmlns:p="tapestry:parameter">
+
+	<t:inputlabel forId="dateEntree" label="Date d'entrée" required="true">
+		<t:textfield t:id="dateEntree" t:value="hospitalisation.dateEntree" class="textfielddate input-small"
+				data-date="${dateToString}" data-date-format="dd/mm/yyyy" data-date-weekstart="1" autocomplete="off"/>			
+	</t:inputlabel>
+	
+	<div>
+		<t:inputlabel forId="numero" label="Numéro d'hospitalisation" required="true">
+			<t:textfield t:id="numero" t:value="hospitalisation.identifiantHospitalisation"/>
+		</t:inputlabel>
+		
+	</div>
+	<t:inputlabel forId="diagnosticP" label="Diagnostic principal" >
+		<t:textarea t:id="diagnosticP" t:value="hospitalisation.diagnosticPrincipal"/>
+	</t:inputlabel>
+	<t:inputlabel forId="diagnosticA" label="Diagnostic associé" >
+		<t:textfield t:id="diagnosticA" t:value="hospitalisation.diagnosticAssocie"/>
+	</t:inputlabel>
+	
+	<t:inputlabel forId="dateSortie" label="Date de sortie">
+		<t:textfield t:id="dateSortie" t:value="hospitalisation.dateSortie" class="textfielddate input-small"
+				data-date="${dateDuJourString}" data-date-format="dd/mm/yyyy" data-date-weekstart="1" autocomplete="off"/>			
+	</t:inputlabel>
+	
+	<t:inputlabel forId="motifSortie" label="Motif de sortie" >
+		<t:select model="motifsSelect" t:id="motifSortie" t:value="hospitalisation.motifSortie"
+			blankLabel="Sélectionnez"/>
+	</t:inputlabel>
+
+</t:container>

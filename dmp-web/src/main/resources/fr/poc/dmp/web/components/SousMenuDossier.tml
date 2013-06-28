@@ -1,0 +1,22 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">	
+
+	<ul class="nav nav-pills" style="margin-top:-15px;margin-left:150px">
+	    <li class="${classConsulter}">
+	    	<t:pagelink page="dossier/ConsulterDossier" context="dossier.identifiant">
+	    		<i class="icon-folder-open"/> Dossier
+	    	</t:pagelink>
+	    </li>
+	    <li class="${classAjouterHospitalisation}">
+	    	<t:actionlink t:id="addHospitalisation">
+	    		<i class="icon-plus"/> Ajouter une hospitalisation
+	    	</t:actionlink>
+	    </li>
+	    <li class="${classAjouterConsultation}">
+	    	<t:actionlink t:id="addConsultation">
+	    		<i class="icon-file"/> Ajouter une consultation
+	    	</t:actionlink>
+	    </li>
+    </ul>
+</html>

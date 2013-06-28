@@ -1,0 +1,1 @@
+pg_dump -f ddl.sql -F p -a -E UTF-8 -n public --inserts --column-inserts -h localhost -p 5432 -U dmp

@@ -1,0 +1,53 @@
+<html t:type="layout" title="Accueil"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+	<div>		
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span3">
+					<div class="well sidebar-nav" id="sidebar">
+						<ul class="nav nav-list">
+							<li class="nav-header">Menu</li>		
+							<ex:verticalMenu t:id="verticalmenu" defaultActiveItem="dossier_medical_patient">
+								<ex:verticalMenuItem t:id="dossier_medical_patient" t:title="literal:Dossier médical patient"/>
+								<ex:verticalMenuItem t:id="administration" t:title="literal:Administration"/>
+							</ex:verticalMenu>					
+						</ul>
+
+					</div>
+				</div>
+
+				<div class="span9" style="position:relative">
+					
+					<div class="navbar">
+					    <div class="navbar-inner">
+						    <ul class="nav">
+							    <li class="${rechercheClass}">
+							    	<t:pagelink page="dossier/RechercherDossier">
+							    		<i class="icon-search"/> Rechercher
+							    	</t:pagelink>
+							    </li>
+							    <li class="${creationClass}">
+							    	<t:pagelink page="dossier/CreerDossier">
+							    		<i class="icon-plus-sign"/> Créer un dossier
+							    	</t:pagelink>
+							    </li>
+							    <t:if test="consultation">
+								    <li class="active">
+								    	<a href="#" onclick="return false;">
+								    		<i class="icon-folder-open"/> Consulter un dossier
+								    	</a>
+								    </li>
+							    </t:if>
+						    </ul>
+					    </div>
+				    </div>
+				    
+				    <t:body/>
+				    
+				</div>
+			</div>
+		</div>
+	</div>
+</html>

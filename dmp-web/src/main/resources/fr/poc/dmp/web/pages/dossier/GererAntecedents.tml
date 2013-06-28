@@ -1,0 +1,54 @@
+<html t:type="bandeauhautlayout"
+	  t:consultation="true"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+	<div class="well">
+	    <div class="alert alert-info alert-block displayData" style="padding-bottom:0px">
+		   <button type="button" class="close" data-dismiss="alert">×</button>
+		   <h4>Dossier médical</h4>
+		   <br/>
+		   <t:displayvalue label="Nom et prénom">
+				Djabiraly Sarah
+			</t:displayvalue>	   
+			<t:displayvalue label="Date de naissance" last="true">
+				17/04/1984
+			</t:displayvalue>	
+		</div>
+	
+		<fieldset>
+			<legend>Modification des antécédents</legend>
+				<t:form t:id="form" class="form-horizontal">
+					<t:inputlabel forId="personnels" label="Antécédents personnels">
+						<t:textarea t:id="personnels" t:value="personnels"/>
+					</t:inputlabel>
+					<t:inputlabel forId="familiaux" label="Antécédents familiaux">
+						<t:textarea t:id="familiaux" t:value="familiaux"/>
+					</t:inputlabel>
+					<t:inputlabel forId="allergies" label="Allergies et intolérances médicamenteuses">
+						<t:textarea t:id="allergies" t:value="allergies"/>
+					</t:inputlabel>
+					<t:inputlabel forId="facteurRisque" label="Facteurs de risque">
+						<t:textarea t:id="facteurRisque" t:value="facteurRisque"/>
+					</t:inputlabel>
+					<t:inputlabel forId="vaccinations" label="Vaccinations et autres actions de prévention">
+						<t:textarea t:id="vaccinations" t:value="vaccinations"/>
+					</t:inputlabel>
+					<t:inputlabel forId="prevention" label="Prévention et dépistage">
+						<t:textarea t:id="prevention" t:value="prevention"/>
+					</t:inputlabel>
+					<t:inputlabel forId="evenements" label="Événements biographiques significatifs">
+						<t:textarea t:id="evenements" t:value="evenements"/>
+					</t:inputlabel>
+					<div class="control-group">
+						<div class="controls">
+							<t:submit t:value="Modifier" class="btn btn-info" t:event="modifier"/>
+							&nbsp;
+							<t:submit t:value="Annuler" class="btn" t:event="annuler"/>
+						</div>
+					</div>
+				</t:form>	
+		</fieldset>
+	</div>
+</html>

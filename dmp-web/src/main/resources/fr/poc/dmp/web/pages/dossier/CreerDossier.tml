@@ -1,0 +1,106 @@
+<html t:type="bandeauhautlayout"
+	  t:creation="true"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+<t:encart title="Création d'un dossier médical">
+	<t:form t:id="form" class="form-horizontal">
+		<t:formError/>
+		
+		<div class="row-fluid">
+		<div class="span6" style="border-right:1px solid #E5E5E5">
+			
+			<t:inputlabel forId="ref" label="Référence du dossier">
+				<t:textfield t:id="ref" t:value="patient.referenceDossierPhysique"/>
+			</t:inputlabel>
+			
+			<div>
+				<t:inputlabel forId="nom" label="Nom" required="true">
+					<t:textfield t:id="nom" t:value="patient.nom"/>
+					<label class="checkbox" for="homonyme">
+							<t:checkbox t:id="homonyme" t:value="patient.homonyme"/> Homonyme connu
+						</label>
+				</t:inputlabel>
+				
+			</div>
+			<t:inputlabel forId="nomUsage" label="Nom d'usage">
+				<t:textfield t:id="nomUsage" t:value="patient.nomUsage"/>
+			</t:inputlabel>
+			<t:inputlabel forId="prenom" label="Prénom" required="true">
+				<t:textfield t:id="prenom" t:value="patient.prenom"/>
+			</t:inputlabel>
+			<t:inputlabel forId="datenaissance" label="Date de naissance" required="true">
+					<t:textfield t:id="datenaissance" t:value="patient.dateNaissance" class="textfielddate input-small"
+						data-date="01/01/2012" data-date-format="dd/mm/yyyy" data-date-weekstart="1" autocomplete="off"/>			
+			</t:inputlabel>
+			<t:inputlabel forId="sexe" label="Sexe" required="true">
+				<t:radiogroup t:id="sexe" t:value="patient.sexe">
+	                <t:loop source="sexes" value="loopSexe">
+	                	<label style="float:left">
+		                	<t:radio t:value="loopSexe.code"/> ${loopSexe.libelle} 
+		                </label> <span style="float:left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+		                 
+	                </t:loop>
+	            </t:radiogroup>
+			</t:inputlabel>
+			<t:inputlabel forId="adresse" label="Adresse" required="true">
+				<t:textarea t:id="adresse" t:value="patient.adresse"/>
+			</t:inputlabel>
+			
+			
+		</div>
+		<div class="span6">
+			
+			<t:inputlabel forId="telephone" label="Téléphone">
+				<t:textfield t:id="telephone" t:value="patient.telephoneFixe"/>
+			</t:inputlabel>
+			<t:inputlabel forId="telephoneMobile" label="Téléphone mobile">
+				<t:textfield t:id="telephoneMobile" t:value="patient.telephoneMobile"/>
+			</t:inputlabel>
+			
+			<t:inputlabel forId="profession" label="Profession">
+				<t:textfield t:id="profession" t:value="patient.profession"/>
+			</t:inputlabel>
+			
+			<t:inputlabel forId="numss" label="Numéro Sécurité Sociale">
+				<t:textfield t:id="numss" t:value="patient.numeroSS"/>
+			</t:inputlabel>
+			
+			<div class="control-group">
+				<label class="control-label" for="ALD">
+					<span rel="tooltip" href="#"	data-placement="top" 
+										data-original-title="Affection de longue durée">
+						<abbr title="">ALD</abbr>
+					</span> en cours
+				</label>
+				<div class="controls">
+					<label class="checkbox" for="ALD">
+						<t:checkbox t:id="ALD" t:value="patient.indicateurALD"/>
+					</label>
+				</div>
+			</div>
+			
+			<t:inputlabel forId="tuteur" label="Tuteur, curateur, tiers payant">
+				<t:textfield t:id="tuteur" t:value="patient.nomTuteur"/>
+			</t:inputlabel>
+			
+			<t:inputlabel forId="mutuelle" label="Nom mutuelle">
+				<t:textfield t:id="mutuelle" t:value="patient.nomMutuelle"/>
+			</t:inputlabel>
+			
+			<t:inputlabel forId="numMutuelle" label="Numéro mutuelle">
+				<t:textfield t:id="numMutuelle" t:value="patient.numeroMutuelle"/>
+			</t:inputlabel>
+			
+		</div>
+		</div>
+		
+		<div class="control-group">
+			<div class="controls">
+				<t:submit t:value="Créer" class="btn btn-info"/>
+			</div>
+		</div>
+	</t:form>
+</t:encart>
+</html>

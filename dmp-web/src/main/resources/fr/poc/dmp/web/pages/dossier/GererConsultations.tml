@@ -1,0 +1,52 @@
+<html t:type="bandeauhautlayout"
+	  t:consultation="true"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+	<div class="well">
+	    <div class="alert alert-info alert-block displayData" style="padding-bottom:0px">
+		   <button type="button" class="close" data-dismiss="alert">×</button>
+		   <h4>Dossier médical</h4>
+		   <br/>
+		   <t:displayvalue label="Nom et prénom">
+				Djabiraly Sarah
+			</t:displayvalue>	   
+			<t:displayvalue label="Date de naissance" last="true">
+				17/04/1984
+			</t:displayvalue>	
+		</div>
+	
+		<fieldset>
+			<legend>Ajout d'une consultation</legend>
+				<t:form t:id="form" class="form-horizontal">
+					<t:inputlabel forId="nomMedecin" label="Nom du médecin">
+						<t:textfield t:id="nomMedecin" t:value="nomMedecin"/>
+					</t:inputlabel>
+					<t:inputlabel forId="dateRencontre" label="Date de la rencontre">
+							<t:textfield t:id="dateRencontre" t:value="dateRencontre" class="textfielddate"
+								data-date="01/01/2012" data-date-format="dd/mm/yyyy" data-date-weekstart="1" autocomplete="off"/>			
+					</t:inputlabel>
+					<t:inputlabel forId="typeContact" label="Type de contact">
+						<t:textfield t:id="typeContact" t:value="typeContact"/>
+					</t:inputlabel>
+					<t:inputlabel forId="donneesSignificatives" label="Données significatives">
+						<t:textarea t:id="donneesSignificatives" t:value="donneesSignificatives"/>
+					</t:inputlabel>
+					<t:inputlabel forId="conclusionSynthese" label="Conclusion / Synthèse">
+						<t:textarea t:id="conclusionSynthese" t:value="conclusionSynthese"/>
+					</t:inputlabel>
+					<t:inputlabel forId="decision" label="Décision">
+						<t:textarea t:id="decision" t:value="decision"/>
+					</t:inputlabel>
+					<div class="control-group">
+						<div class="controls">
+							<t:submit t:value="Ajouter" class="btn btn-info" t:event="ajouter"/>
+							&nbsp;
+							<t:submit t:value="Annuler" class="btn" t:event="annuler"/>
+						</div>
+					</div>
+				</t:form>	
+		</fieldset>
+	</div>
+</html>
